@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CGPI Converter</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+    body{
+        background:#333;
+        color: #fff;
+    }
+    header{
+        background: rgb(23, 121, 233);
+        color: #fff;
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="display-4 text-center">CGPI 2 PERCENT</h1>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h3 class="display-4 text-center">Enter Your CGPI</h3>
+                <form>
+                    <div class="form-group">
+                        <input id="ptInput" type="number" class="form-control form-control-lg" placeholder="Enter Pointer">
+                    </div>
+                </form>
+                <div id="output">
+                    <div class="card  card-success mb-2">
+                        <div class="card-block">
+                            <h4>Percentage:</h4>
+                            <h4><div id="percent"></h4>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+
+        document.getElementById('output').style.visibility = 'hidden';
+        document.getElementById('ptInput').addEventListener("input", function(e){
+        document.getElementById('output').style.visibility = 'visible';
+        
+        let pointerr = e.target.value;
+        if(pointerr <= 7){
+            pointerr= 7.1*pointerr+12+ "%" + "<br><br> <p> Your CGPI is less than 7 <br> Formula Applied (7.1*CGPI+12)</p>";
+        } else{
+            pointerr = 7.4*pointerr+12 + "%" + "<br><br> <p> Your CGPI is greater than and equal to 7<br> Formula Applied (7.4*CGPI+12)</p>";;}
+        document.getElementById('percent').innerHTML= pointerr;
+    
+    }
+    );
+    </script>
+</body>
+</html>
